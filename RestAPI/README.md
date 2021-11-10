@@ -10,7 +10,7 @@ Sample application using the [Express Authentication API](https://developer.sign
 
 1. Install dependencies with `npm install`
 2. Run the application with `npm start`
-3. Go to [localhost:3000](localhost:3000)
+3. Go to http://localhost:3000 to view the application
 
 ## Running the sample backend application
 
