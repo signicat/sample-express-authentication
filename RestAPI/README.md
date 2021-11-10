@@ -1,6 +1,6 @@
 # REST API Sample for ASP.NET Core
 
-Sample application using the [Express Authentication API](https://developer.signicat.com/express/apis/authentication.html).
+Sample application using the [Express Authentication API](https://developer.signicat.com/express/apis/authentication.html), built with the [Signicat Express .NET SDK](https://github.com/signicat/signicat-express-net).
 
 ## Requirements
 - [Node.js](https://nodejs.org/en/)
@@ -15,5 +15,5 @@ Sample application using the [Express Authentication API](https://developer.sign
 ## Running the sample backend application
 
 1. Navigate to the `/Server` directory
-2. Add your OAuth client ID and client secret to appsettings.json
+2. Add your OAuth client ID and client secret to `appsettings.json`
 3. Run the server with `dotnet run`
