@@ -1,27 +1,19 @@
-# Start the authentication session
+# REST API Sample for ASP.NET Core
 
-Signicat Express Authentication API is used to verify the identity of users who sign up and log in to online services. In this package are some basic scripts to get the application running.
+Sample application using the [Express Authentication API](https://developer.signicat.com/express/apis/authentication.html).
+
+## Requirements
+- [Node.js](https://nodejs.org/en/)
+- [.NET 5.0+ SDK](https://dotnet.microsoft.com/download)
 
 ## Running the sample frontend application
 
-1. Build the application
-
-```npm install```
-
-2. Run the application
-
-```npm start```
-
+1. Install dependencies with `npm install`
+2. Run the application with `npm start`
 3. Go to [localhost:3000](localhost:3000)
 
-## Running the samle backend application
+## Running the sample backend application
 
-1. Go inside the Server-folder
-
-2. Build the server
-
-```dotnet restore```
-
-3. run the server
-
-```dotnet run```
+1. Navigate to the `/Server` directory
+2. Add your OAuth client ID and client secret to appsettings.json
+3. Run the server with `dotnet run`
