@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Idfy.SDK" />
+    <None Remove="Microsoft.AspNetCore" />
+    <None Remove="Microsoft.AspNetCore.Mvc" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Idfy.SDK" Version="2.13.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.10" />
+  </ItemGroup>
+</Project>
