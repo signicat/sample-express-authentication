@@ -41,6 +41,7 @@ namespace SampleApp
                     opts.ResponseType = "code";
 
                     opts.CallbackPath = new PathString("/callback");
+                    opts.SignedOutCallbackPath = new PathString("/signout-callback");
                     opts.ClaimsIssuer = "Signicat";
                     
                     // Saves the ID and access tokens to the AuthenticationProperties.
