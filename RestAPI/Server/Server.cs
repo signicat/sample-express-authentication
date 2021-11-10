@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -112,7 +113,9 @@ namespace Server
             var name = result.Identity.FullName;
             var nin = result.Identity.Nin;
 
-            Response.Headers.Add("Location", _frontendAppUrl + "?success=true&name=" + name + "&nin=" + nin);
+            var encodedName = Uri.EscapeDataString(name);
+
+            Response.Headers.Add("Location", _frontendAppUrl + "?success=true&name=" + encodedName + "&nin=" + nin);
             return new StatusCodeResult(303);
         }
     }
