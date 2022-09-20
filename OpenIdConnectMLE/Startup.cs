@@ -54,6 +54,8 @@ namespace SampleApp
                     {
                         NameClaimType = "name"
                     };
+                    
+                    // Retrieves the JWK that will be used for decryption.
                     opts.TokenValidationParameters.TokenDecryptionKeyResolver =
                         (token, securityToken, kid, parameters) =>
                         {
@@ -67,6 +69,7 @@ namespace SampleApp
 
                             return keys;
                         };
+                        
                     opts.Events.OnTokenValidated = ctx =>
                     {
                         ctx.SecurityToken = ctx.SecurityToken.InnerToken ?? ctx.SecurityToken;

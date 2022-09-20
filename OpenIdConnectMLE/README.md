@@ -1,13 +1,15 @@
-# OpenID Connect Sample for ASP.NET Core
+# OpenID Connect MLE Sample for ASP.NET Core
 
 Sample application with login/logout and a profile page displaying user claims.
+
+This application uses [Message Level Encryption](https://developer.signicat.com/express/identity-methods/ftn/#integration-details) which is required for FTN.
 
 ## Requirements
 - [.NET 5.0+ SDK](https://dotnet.microsoft.com/download)
 
 ## How to run
 
-1. Add your OpenID client ID and client secret to `appsettings.json`
+1. Add your OpenID credentials and JWK to `appsettings.json`
 2. Run the application with `dotnet run`
 3. Go to https://localhost:5001 to view the application
 
