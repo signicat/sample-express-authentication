@@ -6,6 +6,6 @@
   
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.12" />
-    <PackageReference Include="Signicat.Express.SDK" Version="3.0.0" />
+    <PackageReference Include="Signicat.Express.SDK" Version="5.4.0" />
   </ItemGroup>
 </Project>

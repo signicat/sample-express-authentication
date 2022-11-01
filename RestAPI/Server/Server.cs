@@ -9,7 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 using Signicat.Express;
-using Signicat.Express.IdentificationV2;
+using Signicat.Express.Authentication;
 
 namespace Server
 {
@@ -39,7 +39,7 @@ namespace Server
         {
             services.AddMvc().AddNewtonsoftJson();
 
-            services.AddSingleton<IIdentificationV2Service>(c => new IdentificationV2Service(
+            services.AddSingleton<IAuthenticationService>(c => new AuthenticationService(
                 Configuration["Signicat:ClientId"],
                 Configuration["Signicat:ClientSecret"],
                 new List<OAuthScope>() { OAuthScope.Identify }
@@ -64,13 +64,13 @@ namespace Server
     [ApiController]
     public class AuthenticationApiController : Controller
     {
-        private readonly IIdentificationV2Service _identificationService;
+        private readonly IAuthenticationService _authenticationService;
         private readonly string _frontendAppUrl;
         private readonly string _backendUrl;
 
-        public AuthenticationApiController(IIdentificationV2Service identificationService, IConfiguration configuration)
+        public AuthenticationApiController(IAuthenticationService authenticationService, IConfiguration configuration)
         {
-            _identificationService = identificationService;
+            _authenticationService = authenticationService;
             _frontendAppUrl = configuration["FrontendAppUrl"];
             _backendUrl = configuration["BackendUrl"];
         }
@@ -78,7 +78,7 @@ namespace Server
         [HttpPost]
         public async Task<ActionResult> Create()
         {
-            var session = await _identificationService.CreateSessionAsync(new IdSessionCreateOptions()
+            var session = await _authenticationService.CreateSessionAsync(new IdSessionCreateOptions()
             {
                 Flow = IdSessionFlow.Redirect,
                 RedirectSettings = new RedirectSettings()
@@ -108,7 +108,7 @@ namespace Server
         [HttpGet]
         public async Task<ActionResult> Retrieve([FromQuery(Name = "sessionId")] string sessionId)
         {
-            var result = await _identificationService.GetSessionAsync(sessionId);
+            var result = await _authenticationService.GetSessionAsync(sessionId);
 
             var name = result.Identity.FullName;
             var nin = result.Identity.Nin;
